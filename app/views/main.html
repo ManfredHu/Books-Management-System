@@ -1,23 +1,20 @@
-<div class="jumbotron">
-  <h1>Hello World</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class "container">
+    <h2>My todos</h2>
+    <form role="form" ng-submit="addTodo()">
+        <div class="row">
+            <div class="input-group">
+                <input type="text" ng-model="todo" placeholder="What needs to be done?" class="form-control">
+                <span class="input-group-btn"> 
+                  <input title ="添加" type="submit" value="Add" class="btn btn-primary">
+                 </span>
+            </div>
+        </div>
+    </form>
+    <p></p>
+    <p class="input-group row" ng-repeat="todo in todos">
+        <input type="text" ng-model="todo" class="form-control">
+        <span class="input-group-btn">
+          <button title ="删除" class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">Delete</button>
+        </span>
+    </p>
 </div>

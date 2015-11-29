@@ -7,11 +7,14 @@
  * # MainCtrl
  * Controller of the booksManagementSystemApp
  */
-angular.module('booksManagementSystemApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var booksManagementSystemApp = angular.module('booksManagementSystemApp');
+booksManagementSystemApp.controller('MainCtrl', ['$scope',function($scope) {
+    $scope.todos = ['Item 1', 'Item 2', 'Item 3'];
+    $scope.addTodo = function() {
+        $scope.todos.push($scope.todo);
+        $scoep.todo = "";
+    };
+    $scope.removeTodo = function(index) {
+    	$scope.todos.splice(index,1);
+    }
+}]);
