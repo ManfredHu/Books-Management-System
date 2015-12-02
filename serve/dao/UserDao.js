@@ -2,6 +2,7 @@ var User = require("../model/UserModel");
 var connection = require('../db/connection');
 var queryWithArgs = connection.queryWithArgs;
 var query = connection.query;
+var md5 = require('md5');
 
 /*
              输入       输出
@@ -19,10 +20,16 @@ selectOne    User.id    User
  * @param  {Function} 	callback 回调函数，执行如callback("success");或者callback(er);
  */
 var insert = function(user, callback) {
+    console.log("user:"+user);
     var sql = "insert into t_admin set ?";
+    var obj = {
+        Admin_name:user.username,
+        Admin_password:md5(user.password)    //用MD5加密用户密码
+    };
+    console.log(obj);
     try {
         //执行插入语句，成功返回success
-        queryWithArgs(sql, user, function(err, rows) {
+        queryWithArgs(sql, obj, function(err, rows) {
             console.log("UserDaoInsertSuccess:" + rows);
             if (err) {
                 console.error("UserDaoInsertError:" + err);

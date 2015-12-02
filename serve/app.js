@@ -32,16 +32,18 @@
 // 
 // 
 
-var insertUser = require("./dao/UserDao").insert;
-var obj = {Admin_name:'1440',Admin_password:'123456'};
-insertUser(obj,function() {
-	console.warn("哈哈哈哈");
-});
+// var insertUser = require("./dao/UserDao").insert;
+// var obj = {Admin_name:'1440',Admin_password:'123456'};
+// insertUser(obj,function() {
+// 	console.warn("哈哈哈哈");
+// });
 
-var insertUser = require("./dao/UserDao").insert;
-var obj = {Admin_name:'1440',Admin_password:'123456'};
-insertUser(obj,function() {
-	console.warn("哈哈哈哈");
-});
+// var insertUser = require("./dao/UserDao").insert;
+// var obj = {Admin_name:'1440',Admin_password:'123456'};
+// insertUser(obj,function() {
+// 	console.warn("哈哈哈哈");
+// });
 
-var
+// var md5 = require('md5');
+ 
+// console.log(md5('message'));

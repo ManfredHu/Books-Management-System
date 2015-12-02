@@ -35,6 +35,7 @@ exports.getConnection = getConnection;
  */
 var query = function(queryString, func) {
     var success = function(connection) {
+        console.log("queryString:"+queryString);
         connection.query(queryString, function(err, rows) {
             func(err, rows);
             connectionRelease(function() {
