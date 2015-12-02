@@ -1,17 +1,17 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name booksManagementSystemApp.controller:LoginCtrl
- * @description
- * # LoginCtrl
- * Controller of the booksManagementSystemApp
- */
-angular.module('booksManagementSystemApp')
-  .controller('LoginCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var booksManagementSystemApp = angular.module('booksManagementSystemApp');
+booksManagementSystemApp.controller('LoginCtrl', function($scope) {
+	$scope.submitForm = function(valid) {
+		var user = {
+			"username":$scope.userName,
+			"password":$scope.password
+		};
+		if(valid) {
+			//发送数据到后台
+			alert(JSON.stringify(user));
+		}else{
+
+		}
+	};
+});
