@@ -1,4 +1,4 @@
-var User = require("../model/UserModel");
+// var User = require("../model/UserModel");
 var connection = require('../db/connection');
 var queryWithArgs = connection.queryWithArgs;
 var query = connection.query;

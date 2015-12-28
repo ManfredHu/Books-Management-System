@@ -61,7 +61,7 @@ var queryWithArgs = function(queryString, args, func) {
         connection.query(queryString, args, function(err, rows) {
             func(err, rows);
             connectionRelease(function() {
-                console.log("释放链接");
+                console.log("----------------------释放链接-------------------");
             }, connection);
         });
     };

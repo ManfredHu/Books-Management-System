@@ -11,9 +11,9 @@ var obj = {
     username: "hwf",
     password: "hwf"
 };
-insert(obj, function() {
-    // console.warn("插入用户成功");
-});
+// insert(obj, function() {
+//     // console.warn("插入用户成功");
+// });
 
 
 //deleteTest
@@ -32,6 +32,6 @@ insert(obj, function() {
 // 	console.log(user);
 // });
 
-// selectAll(function(rows) {
-// 	console.log(rows);
-// });
+selectAll(function(rows) {
+	console.log(rows);
+});
