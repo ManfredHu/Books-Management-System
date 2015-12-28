@@ -14,4 +14,8 @@ module.exports = function(app) {
     app.get('/login', function(req, res) {
         res.send("欢迎访问login页面");
     });
+
+    app.get('/admin', function(req, res) {
+        res.send("后台admin页面");
+    });
 }

@@ -22,9 +22,10 @@ booksManagementSystemApp.controller('LoginCtrl', ['$scope', '$http', function($s
                 },
                 data: $.param(user) //发送user数据到后台
             }).then(function successCallback(response) {
-                if(response.status === 200) {
-                    alert(response.data.msg);
-                }
+                alert("成功响应");
+                // if(response.status === 200) {
+                //     alert(response.data.msg);
+                // }
             }, function errorCallback(response) {
                 alert(response.data.msg);
             });
