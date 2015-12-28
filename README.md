@@ -1,12 +1,6 @@
-# books-management-system
+# books-management-system(未完)
+使用MySQL+ExpressJS+AngularJS+NodeJS尝试开发的图书管理系统
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.14.0.
-
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+## 目录详解
+serve为后台服务器目录架构
+app为AngularJS的前端目录架构
