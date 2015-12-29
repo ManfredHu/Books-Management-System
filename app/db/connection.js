@@ -39,7 +39,7 @@ var query = function(queryString, func) {
         connection.query(queryString, function(err, rows) {
             func(err, rows);
             connectionRelease(function() {
-                console.log("释放链接");
+                console.log("----------------------释放链接-------------------");
             }, connection);
         });
     };

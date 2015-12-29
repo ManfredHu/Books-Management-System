@@ -1,0 +1,63 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ejs',
+1 verbose cli   '--save-dev' ]
+2 info using npm@3.3.6
+3 info using node@v5.0.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData ejs
+8 silly fetchNamedPackageData ejs
+9 silly mapToRegistry name ejs
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/ejs
+13 verbose request uri https://registry.npmjs.org/ejs
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 04:52:57
+16 verbose request id d168b3e4c7f9232d
+17 http request GET https://registry.npmjs.org/ejs
+18 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 185.31.18.162:443
+19 info attempt registry request try #2 at 04:53:28
+20 http request GET https://registry.npmjs.org/ejs
+21 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 185.31.18.162:443
+22 info attempt registry request try #3 at 04:54:49
+23 http request GET https://registry.npmjs.org/ejs
+24 silly fetchPackageMetaData Error: connect ETIMEDOUT 185.31.18.162:443
+24 silly fetchPackageMetaData     at Object.exports._errnoException (util.js:860:11)
+24 silly fetchPackageMetaData     at exports._exceptionWithHostPort (util.js:883:20)
+24 silly fetchPackageMetaData     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1063:14)
+24 silly fetchPackageMetaData  error for ejs { [Error: connect ETIMEDOUT 185.31.18.162:443]
+24 silly fetchPackageMetaData   code: 'ETIMEDOUT',
+24 silly fetchPackageMetaData   errno: 'ETIMEDOUT',
+24 silly fetchPackageMetaData   syscall: 'connect',
+24 silly fetchPackageMetaData   address: '185.31.18.162',
+24 silly fetchPackageMetaData   port: 443 }
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: connect ETIMEDOUT 185.31.18.162:443
+30 verbose stack     at Object.exports._errnoException (util.js:860:11)
+30 verbose stack     at exports._exceptionWithHostPort (util.js:883:20)
+30 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1063:14)
+31 verbose cwd C:\Users\manfr\Code\Books-Management-System\app
+32 error Windows_NT 10.0.10240
+33 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ejs" "--save-dev"
+34 error node v5.0.0
+35 error npm  v3.3.6
+36 error code ETIMEDOUT
+37 error errno ETIMEDOUT
+38 error syscall connect
+39 error network connect ETIMEDOUT 185.31.18.162:443
+39 error network This is most likely not a problem with npm itself
+39 error network and is related to network connectivity.
+39 error network In most cases you are behind a proxy or have bad network settings.
+39 error network
+39 error network If you are behind a proxy, please make sure that the
+39 error network 'proxy' config is set properly.  See: 'npm help config'
+40 verbose exit [ 1, true ]
