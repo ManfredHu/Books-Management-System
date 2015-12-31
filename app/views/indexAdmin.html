@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">图书管理系统后台管理页面</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" title="设置">设置</a></li>
+                <li><a href="/logout" title="注销">注销</a></li>
+                <li><a href="http://www.cnblogs.com/manfredHu/" target="_blank" title="ManfredHu的博客">博客</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search..." autocomplete="on">
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <!-- 载入导航侧边栏 -->
+        <div ui-view="navSideBar">
+            导航侧边栏加载中...
+        </div>
+        <!-- 载入列表页面 -->
+        <div ui-view="bookList">
+            书籍列表加载中...
+        </div>
+    </div>
+</div>

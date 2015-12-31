@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({
 //传入app参数到routes.js中配置后台路由
 require('./routes.js')(app);
 
-var port = 8080;
+var port = 9000;
 console.log("服务器开始监听" + port + "端口");
 //监听80端口
 app.listen(port);

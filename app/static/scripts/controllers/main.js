@@ -17,4 +17,5 @@ booksManagementSystemApp.controller('MainCtrl', ['$scope',function($scope) {
     $scope.removeTodo = function(index) {
     	$scope.todos.splice(index,1);
     }
+    没用到
 }]);

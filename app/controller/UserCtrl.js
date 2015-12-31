@@ -40,11 +40,13 @@ exports.login = function(req, res) {
                 req.session.Admin_name = Admin_name;
                 //设置信息
                 console.log("输出session到客户端:" + req.session.Admin_id);
+
                 res.redirect('/admin');
             });
 
             // res.status(200).json({
-            //     "msg": '登陆成功'
+            //     msg: '登陆成功',
+            //     id:''
             // });
 
         } else {
