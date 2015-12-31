@@ -1,20 +1,16 @@
 <div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-        <li class="active"><a href="#">添加类别 <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">查看类别</a></li>
-        <li><a href="#">修改类别</a></li>
-        <li><a href="#">删除类别</a></li>
+    <ul class="nav nav-sidebar"  >
+        <li ng-repeat="nav in navGroups" ng-class="">
+            <a href="#">{{nav.navName}}</a>
+        </li>
     </ul>
-    <ul class="nav nav-sidebar">
-        <li><a href="">{{navName}}</a></li>
-        <li><a href="">Nav item again</a></li>
-        <li><a href="">One more nav</a></li>
-        <li><a href="">Another nav item</a></li>
-        <li><a href="">More navigation</a></li>
-    </ul>
-    <ul class="nav nav-sidebar">
-        <li><a href="">Nav item again</a></li>
-        <li><a href="">One more nav</a></li>
-        <li><a href="">Another nav item</a></li>
+    <ul>
+        <li>{{funcName}}</li>
     </ul>
 </div>
+
+
+<!-- 
+    <li ng-class="{}"class="active"><a href="#">添加类别{{needAddHtml}}</a></li>
+    <li><a href="#">查看类别{{needAddHtml}}</a></li>
+-->

@@ -10,7 +10,7 @@ module.exports = function(app) {
     app.get('/', function(req, res) {
         if (req.session.Admin_id) {
             //进入管理主界面
-            console.log('*************用户已进入系统:登陆模块停止，进入admin模块************')
+            console.log('----------------------用户已进入系统:登陆模块停止，进入admin模块-------------------');
                 // res.redirect('/admin');
                 // res.render('admin',{
                 //     id:req.session.Admin_id,
@@ -20,7 +20,11 @@ module.exports = function(app) {
                 // res.send("这里");
 
             var options = {
-                root: __dirname + '/views/'
+                root: __dirname + '/views/',
+                headers: {
+                    'id': req.session.Admin_id,
+                    'name': req.session.Admin_name
+                }
             };
 
             var fileName = 'admin.html';
@@ -32,7 +36,7 @@ module.exports = function(app) {
                     console.log('Sent:', fileName);
                 }
             });
-            
+
         } else {
             //没有检测到session则输出index.html模板即登陆页面
             console.log('用户访问系统登陆页面');
