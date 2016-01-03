@@ -1,5 +1,5 @@
 var config = require('./config.js'),
-    model = require('../model/Model.js'),
+    // model = require('../model/Model.js'),
     UserDao = require('../dao/UserDao.js'),
     md5 = require('md5');
 

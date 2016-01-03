@@ -19,7 +19,7 @@ adminApp.run(function($rootScope, $state, $stateParams) {
  * 执行这里的时候，indexAdmin页面已经载入，所以这里没写
  */
 adminApp.config(function($stateProvider, $urlRouterProvider) { //设置路由
-    $urlRouterProvider.otherwise('/admin/add'); //设置其他路径跳转到index
+    $urlRouterProvider.otherwise('/admin/addType'); //设置其他路径跳转到index
     $stateProvider
         .state('admin', {
             //这里捕获的路由参数(add/seeAll)可以在ui-sref="booklist({bookType:0})"获取得到
@@ -35,8 +35,8 @@ adminApp.config(function($stateProvider, $urlRouterProvider) { //设置路由
                     controller:'navCtrl'
                 },
                 'bookList@admin': { //footer部分
-                    templateUrl: '/tpl/bookList.html',
-                    controller:'bookListCtrl'
+                    templateUrl: '/tpl/addBookType.html',
+                    controller:'addBookType'
                 }
             }
         })

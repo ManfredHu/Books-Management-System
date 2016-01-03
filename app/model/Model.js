@@ -1,26 +1,32 @@
+/**
+ * 数据库结构定义
+ */
+
+//t_admin
 exports.User = {
-    _id: 0,
-    _username: "",
-    _password: "",
-    //id
-    get id() {
-        return _id;
-    },
-    set id(value) {
-        _id = value;
-    },
-    //username
-    get username() {
-        return _id;
-    },
-    set username(value) {
-        _username = value;
-    },
-    //
-    get password() {
-        return _id;
-    },
-    set password(value) {
-        _password = value;
-    }
+    id: 0,
+    username: "",
+    password: ""
+    /**
+     * Admin_id         int(11)
+     * Admin_name       varchar(10)
+     * Admin_password   varchar(32)
+     */
+};
+
+//t_type
+exports.bookType = {
+    id: 0,
+    typeName: ''
+    /**
+     * Sort_id      int(11)
+     * Sort_name    varcahr(20)
+     */
+};
+
+exports.book = {
+    id: 0
+    /**
+     * need to continue
+     */
 }

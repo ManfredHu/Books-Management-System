@@ -1,4 +1,5 @@
 var UserCtrl = require('./controller/UserCtrl.js'),
+    AdminCtrl = require('./controller/AdminCtrl.js'),
     express = require('express');
 
 module.exports = function(app) {
@@ -8,16 +9,17 @@ module.exports = function(app) {
         .use('/tpl', express.static('./views'));
 
     app.get('/', function(req, res) {
+        console.log("asdasd");
         if (req.session.Admin_id) {
             //进入管理主界面
             console.log('----------------------用户已进入系统:登陆模块停止，进入admin模块-------------------');
-                // res.redirect('/admin');
-                // res.render('admin',{
-                //     id:req.session.Admin_id,
-                //     name: req.session.Admin_name
-                // });
-                // res.render('admin');
-                // res.send("这里");
+            // res.redirect('/admin');
+            // res.render('admin',{
+            //     id:req.session.Admin_id,
+            //     name: req.session.Admin_name
+            // });
+            // res.render('admin');
+            // res.send("这里");
 
             var options = {
                 root: __dirname + '/views/',
@@ -76,6 +78,9 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/addType', function(req, res) {
+        AdminCtrl.addType(req, res);
+    });
     // app.get('/loginSuccess',function(req,res){
     //     // res.render('loginSuccess',{
     //     //     id: req.session.Admin_id,

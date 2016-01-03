@@ -1,11 +1,8 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar"  >
-        <li ng-repeat="nav in navGroups" ng-class="">
+        <li ng-repeat="nav in navGroups" ng-class="nav.needAddClass">
             <a href="#">{{nav.navName}}</a>
         </li>
-    </ul>
-    <ul>
-        <li>{{funcName}}</li>
     </ul>
 </div>
 

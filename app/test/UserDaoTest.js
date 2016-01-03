@@ -5,33 +5,34 @@ var modify = UserDao.modify;
 var selectOne = UserDao.selectOne;
 var selectAll = UserDao.selectAll;
 
-//insertTest
+//insertTest *
 // var obj = {Admin_name:'hwf',Admin_password:'hwf'};
-var obj = {
-    username: "hwf",
-    password: "hwf"
-};
+// var obj = {
+//     username: "hwf",
+//     password: "hwf"
+// };
 // insert(obj, function() {
 //     // console.warn("插入用户成功");
 // });
 
 
-//deleteTest
+//deleteTest *
 // deleteOne(7,function() {
 // 	console.warn("插入用户成功");
 // });
 
-//modifyTest
+//modifyTest *
 // var obj = {id:6,password:'123456',username:'chensiman'};
 // modify(obj,function() {
 
 // });
 
-//selectOneTest
+//selectOneTest *
 // selectOne(1,function(user) {
 // 	console.log(user);
 // });
 
+//selectAll *
 selectAll(function(rows) {
 	console.log(rows);
 });
