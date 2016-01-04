@@ -18,7 +18,7 @@ adminApp.controller('navCtrl', ['$scope', '$http', '$location',
             {
                 navName: '添加类别', //显示的名称
                 urlName: 'addType' //对应URL的名称
-                    //needAddClass：'active'
+                //needAddClass：'active'
             }, {
                 navName: '查看全部类别',
                 urlName: 'seeAllType'

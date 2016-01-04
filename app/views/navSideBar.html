@@ -1,13 +1,11 @@
 <div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar"  >
+    <ul class="nav nav-sidebar">
         <li ng-repeat="nav in navGroups" ng-class="nav.needAddClass">
-            <a href="#">{{nav.navName}}</a>
+            <a href="#/admin/seeAllType" ui-sref="#/admin/nav.urlName">{{nav.navName}}</a>
         </li>
     </ul>
 </div>
-
-
 <!-- 
-    <li ng-class="{}"class="active"><a href="#">添加类别{{needAddHtml}}</a></li>
+    <li ng-class="{}" class="active"><a href="#">添加类别{{needAddHtml}}</a></li>
     <li><a href="#">查看类别{{needAddHtml}}</a></li>
 -->
