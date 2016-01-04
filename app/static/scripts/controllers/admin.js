@@ -13,43 +13,40 @@ adminApp.controller('navCtrl', ['$scope', '$http', '$location',
          */
 
         //设定功能名称
-        var navGroups = [
-            //第一导航组
-            {
-                navName: '添加类别', //显示的名称
-                urlName: 'addType' //对应URL的名称
+        var navGroups = [{
+            navName: '添加类别', //显示的名称
+            urlName: 'addType' //对应URL的名称
                 //needAddClass：'active'
-            }, {
-                navName: '查看全部类别',
-                urlName: 'seeAllType'
-            }, {
-                navName: '添加书籍'
-                    // ,
-            }, {
-                navName: '查看全部书籍'
-                    // ,
-            }, {
-                navName: 'One more nav'
-                    // ,
-            }, {
-                navName: 'Nav item again'
-                    // ,
-            }, {
-                navName: 'Another nav item'
-                    // ,
-            }
-        ];
+        }, {
+            navName: '查看全部类别',
+            urlName: 'seeAllType'
+        }, {
+            navName: '添加书籍',
+            urlName: 'addBook'
+        }, {
+            navName: '查看全部书籍',
+            urlName: 'seeAllBook'
+        }, {
+            navName: 'One more nav'
+                // ,
+        }, {
+            navName: 'Nav item again'
+                // ,
+        }, {
+            navName: 'Another nav item'
+                // ,
+        }];
         $scope.navGroups = navGroups;
 
         //迭代功能数组选取当前项
-        navGroups.forEach(function(eachOne) {
-            var path = $location.path(); //获取URL参数部分    
-            if (eachOne.urlName) {
-                if (path.indexOf(eachOne.urlName) !== -1) {
-                    eachOne.needAddClass = 'active'; //bootStrap显示当前项的类
-                }
-            }
-        });
+        // navGroups.forEach(function(eachOne) {
+        //     var path = $location.path(); //获取URL参数部分    
+        //     if (eachOne.urlName) {
+        //         if (path.indexOf(eachOne.urlName) !== -1) {
+        //             eachOne.needAddClass = 'active'; //bootStrap显示当前项的类
+        //         }
+        //     }
+        // });
     }
 ]);
 
@@ -80,5 +77,11 @@ adminApp.controller('addBookType', ['$scope', '$http',
                 });
             }
         }
+    }
+]);
+
+adminApp.controller('seeAllType', ['$scope', '$http',
+    function($scope, $http) {
+
     }
 ]);

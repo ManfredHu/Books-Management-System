@@ -27,9 +27,11 @@
         <div ui-view="navSideBar">
             导航侧边栏加载中...
         </div>
-        <!-- 载入列表页面 -->
-        <div ui-view="bookList">
-            书籍列表加载中...
+        <!-- 载入副页 -->
+        <div id="contentPages" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="content" ui-view>
+                页面加载中...
+            </div>
         </div>
     </div>
 </div>
