@@ -1,7 +1,7 @@
 'use strict';
 
-//管理系统模块，admin
-var adminApp = angular.module('adminApp', ['ngAnimate','ui.router']);
+//管理系统模块，admin。声明依赖
+var adminApp = angular.module('adminApp', ['ngAnimate','ui.router','ngGrid']);
 
 /**
  * 由于整个应用都会和路由打交道，所以这里把$state和$stateParams这两个对象放到$rootScope上，方便其它地方引用和注入。

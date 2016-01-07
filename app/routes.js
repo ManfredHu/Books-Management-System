@@ -81,11 +81,10 @@ module.exports = function(app) {
     app.post('/addType', function(req, res) {
         AdminCtrl.addType(req, res);
     });
-    // app.get('/loginSuccess',function(req,res){
-    //     // res.render('loginSuccess',{
-    //     //     id: req.session.Admin_id,
-    //     //     name: req.session.Admin_name
-    //     // });
-    //     // res.render('admin');
-    // });
+
+    app.get('/seeAllType', function(req, res) {
+        AdminCtrl.seeAllType(req, res);
+    });
+
+
 }
