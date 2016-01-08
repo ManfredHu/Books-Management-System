@@ -18,14 +18,16 @@ adminApp.controller('navCtrl', ['$scope', '$http', '$location',
             urlName: 'addType' //对应URL的名称
                 //needAddClass：'active'
         }, {
-            navName: '查看全部类别',
+            navName: '管理全部类别',
             urlName: 'seeAllType'
         }, {
-            navName: '添加书籍',
-            urlName: 'addBook'
+            navName: '添加书籍'
+                // ,
+                // urlName: 'addBook'
         }, {
-            navName: '查看全部书籍',
-            urlName: 'seeAllBook'
+            navName: '管理全部书籍'
+                // ,
+                // urlName: 'seeAllBook'
         }, {
             navName: 'One more nav'
                 // ,
@@ -80,8 +82,8 @@ adminApp.controller('seeAllType', ['$scope', '$http',
         };
         $scope.totalServerItems = 0;
         $scope.pagingOptions = {
-            pageSizes: [5, 10, 20],
-            pageSize: 5,
+            pageSizes: [5, 10, 50],
+            pageSize: 10,
             currentPage: 1
         };
 
@@ -109,21 +111,10 @@ adminApp.controller('seeAllType', ['$scope', '$http',
                             });
                             $scope.setPagingData(data, page, pageSize);
                         });
-                    alert("有searchText");
                 } else {
-                    //
-                    // $http.get('/seeAllType')
-                    //     .success(function(largeLoad) {
-                    //         $scope.setPagingData(largeLoad, page, pageSize);
-                    //     });
                     $http({
                         method: 'GET',
-                        url: '/seeAllType',
-                        // headers: {
-                        //     //表单的报头格式
-                        //     'Content-Type': 'application/x-www-form-urlencoded'
-                        // },
-                        // data: $.param($scope.formData) //发送user数据到后台，这里用到了jQ
+                        url: '/seeAllType'
                     }).then(function successCallback(response) {
                         if (response.status === 200) {
                             $scope.setPagingData(response.data, page, pageSize);
@@ -158,47 +149,75 @@ adminApp.controller('seeAllType', ['$scope', '$http',
             multiSelect: false,
             enableCellSelection: true,
             enableRowSelection: false,
-            enableCellEdit: true,
-            enablePinning: true,
+            enableCellEdit: true, //双击修改，单击选中
+            enablePinning: true, //列固定
             columnDefs: [{
-                field: 'index',
-                displayName: '序号',
-                width: 60,
-                pinnable: false,
-                sortable: false
+                field: 'Sort_id',
+                displayName: 'id值',
+                width: 80,
+                pinnable: true,
+                sortable: true,
+                enableCellEdit: false
             }, {
-                field: 'name',
-                displayName: '书名',
-                enableCellEdit: true
-            }, {
-                field: 'author',
-                displayName: '作者',
+                field: 'Sort_name',
+                displayName: '类别名',
                 enableCellEdit: true,
                 width: 220
             }, {
-                field: 'pubTime',
-                displayName: '出版日期',
-                enableCellEdit: true,
-                width: 120
-            }, {
-                field: 'price',
-                displayName: '定价',
-                enableCellEdit: true,
-                width: 120,
-                cellFilter: 'currency:"￥"'
-            }, {
-                field: 'bookId',
-                displayName: '操作',
+                field: 'Sort_id',
+                displayName: '修改',
                 enableCellEdit: false,
                 sortable: false,
                 pinnable: false,
-                cellTemplate: '<div><a ui-sref="bookdetail({bookId:row.getProperty(col.field)})" id="{{row.getProperty(col.field)}}">详情</a></div>'
+                width: 120,
+                cellTemplate: '<div><a class="btn btn-xs btn-success feng-btn-modify" ng-click="updateType(row)"  data="{{row.getProperty(col.field)}}">确认修改</a></div>'
+            }, {
+                field: 'Sort_id',
+                displayName: '删除',
+                enableCellEdit: false,
+                sortable: false,
+                pinnable: false,
+                width: 120,
+                cellTemplate: '<div><a class="btn btn-xs btn-danger feng-btn-delete" ng-click="deleteType(row)" data="{{row.getProperty(col.field)}}">删除</a></div>'
+                    //ng-click时间触发的时候传入row
             }],
             enablePaging: true,
             showFooter: true,
+            showGroupPanel: true, //顶部的分组选项，可以拖拽列
+            // jqueryUITheme: true, //更换主题，需要jq-ui-theme文件
+            // selectedItems: $scope.mySelections,
+            // multiSelect: false, //多选
             totalServerItems: 'totalServerItems',
+            // enableCellSelection: true, 
             pagingOptions: $scope.pagingOptions,
             filterOptions: $scope.filterOptions
+        };
+
+        $scope.updateType = function(row) {
+            //包装数据传递到后台
+            var obj = {
+                id: row.entity.Sort_id,
+                typeName: row.entity.Sort_name
+            };
+            console.log($.param(obj))
+
+            $http.put('/seeAllType/' + obj.id, obj);
+            // $http({
+            //     method: 'PUT', //按照http1.1的RESTful接口设计规范,PUT为修改数据接口
+            //     url: '/seeAllType',
+            //     data: $.param(obj) //发送user数据到后台，这里用到了jQ
+            // }).then(function successCallback(response) {
+            //     if (response.status === 200) {
+            //         console.log(response);
+            //     }
+            // }, function errorCallback(response) {
+            //     alert("更新书籍类别数据失败");
+            // });
+
+        };
+
+        $scope.deleteType = function(row) {
+
         };
     }
 ]);

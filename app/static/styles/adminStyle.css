@@ -85,3 +85,13 @@
         -webkit-transform: translateX(0);
     }
 }
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 430px;
+}
+
+.feng-btn-modify,.feng-btn-delete{
+    margin-top:4px;
+    margin-left:5px;
+}

@@ -3,13 +3,13 @@ var UserCtrl = require('./controller/UserCtrl.js'),
     express = require('express');
 
 module.exports = function(app) {
-    //路径映射
+
+    //静态文件和一些库文件的路径映射，还有一些模板
     app.use('/static', express.static('./static'))
         .use('/lib', express.static('./lib'))
         .use('/tpl', express.static('./views'));
 
     app.get('/', function(req, res) {
-        console.log("asdasd");
         if (req.session.Admin_id) {
             //进入管理主界面
             console.log('----------------------用户已进入系统:登陆模块停止，进入admin模块-------------------');
@@ -71,6 +71,7 @@ module.exports = function(app) {
         res.redirect('/');
     });
 
+    //管理员从后台登出系统
     app.get('/logout', function(req, res) {
         req.session.destroy(function() {
             console.log("用户登出系统");
@@ -78,12 +79,19 @@ module.exports = function(app) {
         });
     });
 
+    //添加新的类别
     app.post('/addType', function(req, res) {
         AdminCtrl.addType(req, res);
     });
 
+    //获取全部类别数据
     app.get('/seeAllType', function(req, res) {
         AdminCtrl.seeAllType(req, res);
+    });
+
+    //接受类别数据的修改
+    app.put('/seeAllType/:id', function(req, res) {
+        AdminCtrl.updateType(req, res);
     });
 
 

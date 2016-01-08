@@ -45,5 +45,6 @@ require('./routes.js')(app);
 
 var port = 9000;
 console.log("服务器开始监听" + port + "端口");
+
 //监听80端口
 app.listen(port);

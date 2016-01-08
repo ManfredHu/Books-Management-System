@@ -6,10 +6,10 @@ serve为后台服务器目录架构
 app为AngularJS的前端目录架构
 
 ## 一些问题
-express-session模块中官方文档是
+express-session模块中[官方文档](https://github.com/expressjs/session?_ga=1.2960176.1066105876.1451139756)是
 
-```
-app.use(expressSession({
+```javascript
+app.use(session({
         secret: 'manfredHu', //加密
         resave: false,
         saveUninitialized: true
