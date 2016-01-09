@@ -94,5 +94,12 @@ module.exports = function(app) {
         AdminCtrl.updateType(req, res);
     });
 
+    //删除类别
+    app.delete('/seeAllType/:id', function(req, res) {
+        AdminCtrl.deleteType(req, res);
+    });
+
+
+
 
 }

@@ -29,4 +29,4 @@ exports.book = {
     /**
      * need to continue
      */
-}
+};

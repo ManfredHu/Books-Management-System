@@ -16,18 +16,15 @@ adminApp.controller('navCtrl', ['$scope', '$http', '$location',
         var navGroups = [{
             navName: '添加类别', //显示的名称
             urlName: 'addType' //对应URL的名称
-                //needAddClass：'active'
         }, {
             navName: '管理全部类别',
             urlName: 'seeAllType'
         }, {
-            navName: '添加书籍'
-                // ,
-                // urlName: 'addBook'
+            navName: '添加书籍',
+            urlName: 'addBook'
         }, {
-            navName: '管理全部书籍'
-                // ,
-                // urlName: 'seeAllBook'
+            navName: '管理全部书籍',
+            urlName: 'seeAllBook'
         }, {
             navName: 'One more nav'
                 // ,
@@ -153,7 +150,7 @@ adminApp.controller('seeAllType', ['$scope', '$http',
             enablePinning: true, //列固定
             columnDefs: [{
                 field: 'Sort_id',
-                displayName: 'id值',
+                displayName: 'id',
                 width: 80,
                 pinnable: true,
                 sortable: true,
@@ -199,25 +196,21 @@ adminApp.controller('seeAllType', ['$scope', '$http',
                 id: row.entity.Sort_id,
                 typeName: row.entity.Sort_name
             };
-            console.log($.param(obj))
-
-            $http.put('/seeAllType/' + obj.id, obj);
-            // $http({
-            //     method: 'PUT', //按照http1.1的RESTful接口设计规范,PUT为修改数据接口
-            //     url: '/seeAllType',
-            //     data: $.param(obj) //发送user数据到后台，这里用到了jQ
-            // }).then(function successCallback(response) {
-            //     if (response.status === 200) {
-            //         console.log(response);
-            //     }
-            // }, function errorCallback(response) {
-            //     alert("更新书籍类别数据失败");
-            // });
-
+            // console.log($.param(obj))
+            $http.put('/seeAllType/' + obj.id, obj).success(function(data, status) {
+                if (status === 200) {
+                    alert(data.success);
+                }
+            });
         };
 
         $scope.deleteType = function(row) {
-
+            $http.delete('/seeAllType/' + row.entity.Sort_id).success(function(data, status) {
+                if (status === 200) {
+                    $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
+                    alert(data.success);
+                }
+            });
         };
     }
 ]);

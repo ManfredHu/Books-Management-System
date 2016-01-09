@@ -1,7 +1,7 @@
 'use strict';
 
 //管理系统模块，admin。声明依赖
-var adminApp = angular.module('adminApp', ['ngAnimate','ui.router','ngGrid']);
+var adminApp = angular.module('adminApp', ['ngAnimate', 'ui.router', 'ngGrid']);
 
 /**
  * 由于整个应用都会和路由打交道，所以这里把$state和$stateParams这两个对象放到$rootScope上，方便其它地方引用和注入。
@@ -25,7 +25,7 @@ adminApp.config(function($stateProvider, $urlRouterProvider) { //设置路由
             url: '/admin',
             views: {
                 //顶层部分
-                '': { 
+                '': {
                     templateUrl: '/tpl/indexAdmin.html',
                     // controller: 'adminCtrl'
                 },
@@ -47,7 +47,20 @@ adminApp.config(function($stateProvider, $urlRouterProvider) { //设置路由
             url: '/seeAllType',
             templateUrl: '/tpl/seeAllType.html',
             controller: 'seeAllType'
-        });
+        })
+        //添加书籍
+        .state('admin.addBook', {
+            url: '/addBook',
+            templateUrl: '/tpl/addBook.html',
+            controller: 'addBook'
+        })
+        //添加书籍
+        .state('admin.seeAllBook', {
+            url: '/seeAllBook',
+            templateUrl: '/tpl/seeAllBook.html',
+            controller: 'seeAllBook'
+        })
+        ;
 
     $urlRouterProvider.otherwise('/admin/addType'); //设置其他路径跳转到index
 });

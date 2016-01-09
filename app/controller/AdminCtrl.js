@@ -29,6 +29,21 @@ exports.seeAllType = function(req, res) {
 exports.updateType = function(req, res) {
     var obj = req.body;
     BookTypeDao.modify(obj,function() {
+        res.status(200).json({
+            success: '修改书籍类别成功'
+        });
         console.log("修改书籍类别成功");
+    });
+};
+
+//删除类别
+exports.deleteType = function(req,res){
+    //接受url传递的删除类别的id值
+    var id = req.params.id;
+    BookTypeDao.deleteOne(id,function() {
+        res.status(200).json({
+            success: '删除书籍类别成功'
+        });;
+        console.log("删除用户类别成功");
     });
 };
