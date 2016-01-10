@@ -3,10 +3,76 @@
     <form class="form-horizontal" role="form" name="addBook" ng-submit="addType(addTypeForm.$valid,$event)">
         <div class="form-group">
             <label class="col-md-2 control-label">
-                新的书籍：
+                书名：
             </label>
             <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="请输入书籍名……" ng-model="bookName" id="typeName" name="typeName" required autofocus="">
+                <input type="text" class="form-control" placeholder="请输入书名……" ng-model="bookName" id="bookName" name="bookName" required autofocus="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                作者：
+            </label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="请输入作者……" ng-model="writer" id="writer" name="writer">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                价格：
+            </label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="请输入价格……" ng-model="price" id="price" name="price" required autofocus="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                类别：
+            </label>
+            <div class="col-md-5">
+                <select id="basic" class="selectpicker show-tick form-control">
+                    <option ng-repeat="type in types" value="{{type.Sort_id}}">{{type.Sort_name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                出版社：
+            </label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="请输入出版社……" ng-model="pubCompany" id="pubCompany" name="pubCompany">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                出版日期：
+            </label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="请输入出版日期……" ng-model="pubDate" id="pubDate" name="pubDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                总数量：
+            </label>
+            <div class="col-md-5" >
+                <input type="number"  class="form-control" placeholder="请输入总数量……" ng-model="sum" id="sum" name="sum">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                现有数量：
+            </label>
+            <div class="col-md-5">
+                <input type="number" class="form-control" placeholder="请输入现有数量……" ng-model="currentNum" id="currentNum" name="currentNum">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                简要介绍：
+            </label>
+            <div class="col-md-5">
+                <textarea class="form-control" rows="4" placeholder="请输入简要介绍……" ng-model="brief" id="brief" name="brief"></textarea>
             </div>
         </div>
         <div class="form-group">

@@ -35,7 +35,7 @@ exports.getConnection = getConnection;
  */
 var query = function(queryString, func) {
     var success = function(connection) {
-        console.log("queryString:"+queryString);
+        console.log("queryString:" + queryString);
         connection.query(queryString, function(err, rows) {
             func(err, rows);
             connectionRelease(function() {
@@ -56,8 +56,8 @@ exports.query = query;
  */
 var queryWithArgs = function(queryString, args, func) {
     var success = function(connection) {
-    	console.log("queryString:"+queryString);
-    	console.log("args:"+args);
+        console.log("queryString:" + queryString);
+        console.log("args:" + args);
         connection.query(queryString, args, function(err, rows) {
             func(err, rows);
             connectionRelease(function() {
@@ -72,8 +72,8 @@ exports.queryWithArgs = queryWithArgs;
 
 /**
  * 释放连接
- * @param  {[function]} doSomething [函数，在释放连接前执行]
- * @param  {[connection]} connection  [传入已经打开的连接]
+ * @param  {[function]}     doSomething [函数，在释放连接前执行]
+ * @param  {[connection]}   connection  [传入已经打开的连接]
  */
 var connectionRelease = function(doSomething, connection) {
     doSomething();
@@ -81,3 +81,21 @@ var connectionRelease = function(doSomething, connection) {
 }
 
 exports.connectionRelease = connectionRelease;
+
+
+/**
+ * 查询字符串格式化
+ * @param  {[string]} sql [查询字符串]
+ * @param  {[Arrray]} arr [参数数组]
+ * @return {[string]}     [格式化后的查询字符串]
+ *
+ * example:
+ * var sql = "SELECT * FROM ?? WHERE ?? = ?";
+   var inserts = ['users', 'id', userId];
+   sql = mysql.format(sql, inserts);
+ */
+var sqlFormat = function(sql, arr) {
+    return mysql.format(sql,arr);
+}
+
+exports.sqlFormat = sqlFormat;

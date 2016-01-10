@@ -99,7 +99,4 @@ module.exports = function(app) {
         AdminCtrl.deleteType(req, res);
     });
 
-
-
-
 }

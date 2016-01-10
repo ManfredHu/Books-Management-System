@@ -151,7 +151,8 @@ adminApp.controller('seeAllType', ['$scope', '$http',
             columnDefs: [{
                 field: 'Sort_id',
                 displayName: 'id',
-                width: 80,
+                width: '10%',
+                // width: 10%,
                 pinnable: true,
                 sortable: true,
                 enableCellEdit: false
@@ -159,14 +160,16 @@ adminApp.controller('seeAllType', ['$scope', '$http',
                 field: 'Sort_name',
                 displayName: '类别名',
                 enableCellEdit: true,
-                width: 220
+                // width: 220
+                width: '30%'
             }, {
                 field: 'Sort_id',
                 displayName: '修改',
                 enableCellEdit: false,
                 sortable: false,
                 pinnable: false,
-                width: 120,
+                width: '30%',
+                // width: 120,
                 cellTemplate: '<div><a class="btn btn-xs btn-success feng-btn-modify" ng-click="updateType(row)"  data="{{row.getProperty(col.field)}}">确认修改</a></div>'
             }, {
                 field: 'Sort_id',
@@ -174,7 +177,8 @@ adminApp.controller('seeAllType', ['$scope', '$http',
                 enableCellEdit: false,
                 sortable: false,
                 pinnable: false,
-                width: 120,
+                // width: 120,
+                width: '30%',
                 cellTemplate: '<div><a class="btn btn-xs btn-danger feng-btn-delete" ng-click="deleteType(row)" data="{{row.getProperty(col.field)}}">删除</a></div>'
                     //ng-click时间触发的时候传入row
             }],
@@ -212,5 +216,44 @@ adminApp.controller('seeAllType', ['$scope', '$http',
                 }
             });
         };
+    }
+]);
+
+//添加书籍
+adminApp.controller('addBook', ['$scope', '$http',
+    function($scope, $http) {
+        //对类别进行加载
+        $http.get('/seeAllType')
+            .success(function(largeLoad) {
+                $scope.types = largeLoad;
+                console.log($scope.types)
+            });
+
+        //提交的时候
+        //检验通过
+        $scope.addBook = function(valid, event) {
+            $scope.formData = {
+                typeName: $scope.typeName
+            };
+            if (valid) {
+                //发送数据到后台
+                $http({
+                    method: 'POST',
+                    url: '/addType',
+                    headers: {
+                        //表单的报头格式
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: $.param($scope.formData) //发送user数据到后台，这里用到了jQ
+                }).then(function successCallback(response) {
+                    if (response.status === 200) {
+                        $scope.typeName = "";
+                        alert(response.data.success);
+                    }
+                }, function errorCallback(response) {
+                    alert("添加书籍类别失败");
+                });
+            }
+        }
     }
 ]);

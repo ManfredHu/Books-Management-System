@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link type="text/css" rel="stylesheet" href="common.css">
+  <title>Angular file upload sample</title>
+
+  <script type="text/javascript">
+    FileAPI = {
+      debug: true,
+      //forceLoad: true, html5: false //to debug flash in HTML5 browsers
+      //wrapInsideDiv: true, //experimental for fixing css issues
+      //only one of jsPath or jsUrl.
+      //jsPath: '/js/FileAPI.min.js/folder/',
+      //jsUrl: 'yourcdn.com/js/FileAPI.min.js',
+
+      //only one of staticPath or flashUrl.
+      //staticPath: '/flash/FileAPI.flash.swf/folder/'
+      //flashUrl: 'yourcdn.com/js/FileAPI.flash.swf'
+    };
+  </script>
+
+  <!-- <script src="//code.jquery.com/jquery-1.9.0.min.js"></script> -->
+  <script type="text/javascript">
+    // load angularjs specific version
+    var angularVersion = window.location.hash.substring(1);
+    if (angularVersion.indexOf('/') == 0) angularVersion = angularVersion.substring(1);
+    document.write('<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/' +
+        (angularVersion || '1.2.24') + '/angular.js"><\/script>');
+  </script>
+  <script src="js/ng-file-upload-shim.js"></script>
+  <script src="js/ng-file-upload.js"></script>
+  <script src="js/upload.js"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/htmlembedded/htmlembedded.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/xml/xml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/javascript/javascript.min.js"></script>
+</head>
+
+<body ng-app="fileUpload" ng-controller="MyCtrl">
+<div class="ng-v">
+  Angular Version: <input type="text" ng-model="angularVersion">
+  <input type="button" data-ng-click="changeAngularVersion()" value="Go">
+</div>
+<h2>Angular file upload Demo</h2>
+
+<h3>
+  Visit <a href="https://github.com/danialfarid/ng-file-upload">ng-file-upload</a> on github
+</h3>
+
+<div class="upload-div">
+  <div class="edit-div">
+    <a ng-click="showEdit = !showEdit" href="javascript:void(0)">+ edit upload html</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a ng-show="showEdit" ng-click="confirm() && (editHtml = defaultHtml)" href="javascript:void(0)">reset to
+      default</a><br/><br/>
+
+    <div ng-show="showEdit" id="htmlEdit"></div>
+  </div>
+
+  <div class="upload-buttons">
+    <div id="editArea">
+      <div>
+        <div>
+          <form name="myForm">
+            <fieldset>
+              <legend>Upload on form submit</legend>
+              Username: <input type="text" name="userName" ng-model="username" size="39" required>
+              <i ng-show="myForm.userName.$error.required">*required</i><br>
+              Profile Picture: <input type="file" ngf-select ng-model="picFile" name="file" ngf-accept="'image/*'" required>
+              <i ng-show="myForm.file.$error.required">*required</i>
+              <br/>
+
+              <button ng-disabled="!myForm.$valid" ng-click="uploadPic(picFile)">Submit</button>
+              <img ngf-src="picFile" class="thumb">
+              <span class="progress" ng-show="picFile.progress >= 0">
+                  <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></div>
+              </span>
+              <span ng-show="picFile.result">Upload Successful</span>
+            </fieldset>
+            <br/>
+          </form>
+        </div>
+    </div>
+    <br/>
+  </div>
+</div>
+</body>
+</html>
