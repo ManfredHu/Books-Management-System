@@ -99,4 +99,9 @@ module.exports = function(app) {
         AdminCtrl.deleteType(req, res);
     });
 
+    //添加书籍
+    app.post('/addBook', function(req, res) {
+        AdminCtrl.addBook(req, res);
+    });
+
 }

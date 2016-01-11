@@ -1,5 +1,6 @@
 var config = require('./config.js'),
-    BookTypeDao = require('../dao/BookTypeDao.js');
+    BookTypeDao = require('../dao/BookTypeDao.js'),
+    BookDao = require('../dao/BookDao.js');
 
 exports.addType = function(req, res) {
     //封装obj
@@ -28,7 +29,7 @@ exports.seeAllType = function(req, res) {
 //修改类别
 exports.updateType = function(req, res) {
     var obj = req.body;
-    BookTypeDao.modify(obj,function() {
+    BookTypeDao.modify(obj, function() {
         res.status(200).json({
             success: '修改书籍类别成功'
         });
@@ -37,13 +38,40 @@ exports.updateType = function(req, res) {
 };
 
 //删除类别
-exports.deleteType = function(req,res){
+exports.deleteType = function(req, res) {
     //接受url传递的删除类别的id值
     var id = req.params.id;
-    BookTypeDao.deleteOne(id,function() {
+    BookTypeDao.deleteOne(id, function() {
         res.status(200).json({
             success: '删除书籍类别成功'
         });;
         console.log("删除用户类别成功");
+    });
+};
+
+//添加书籍
+exports.addBook = function(req, res) {
+    //封装obj
+    var obj = {
+        bookName: req.body.bookName,
+        writer: req.body.writer,
+        typeId: req.body.typeId, //连接类别的外键
+        price: req.body.price,
+        pubCompany: req.body.pubCompany,
+        pubDate: req.body.pubDate,
+        sum: req.body.sum,
+        currentNum: req.body.currentNum,
+        // buyDate:         '2007-06-01',
+        brief: req.body.brief,
+        imageName: ''
+    };
+    // console.log(obj);
+    // 调用DAO层接口
+    BookDao.insert(obj, function() {
+        console.warn("添加书籍类别成功");
+        //返回给客户端200成功插入反馈
+        res.status(200).json({
+            success: '添加书籍类别成功'
+        });
     });
 };

@@ -226,20 +226,29 @@ adminApp.controller('addBook', ['$scope', '$http',
         $http.get('/seeAllType')
             .success(function(largeLoad) {
                 $scope.types = largeLoad;
-                console.log($scope.types)
             });
 
         //提交的时候
-        //检验通过
         $scope.addBook = function(valid, event) {
             $scope.formData = {
-                typeName: $scope.typeName
+                bookName: $scope.bookName,
+                writer: $scope.writer,
+                typeId: $scope.typeId, //类别
+                price: $scope.price,
+                pubCompany: $scope.pubCompany,
+                pubDate: $scope.pubDate,
+                sum: $scope.sum,
+                currentNum: $scope.currentNum,
+                brief: $scope.brief
+                //缺少imageName,buyDate
             };
+
+            //检验通过
             if (valid) {
                 //发送数据到后台
                 $http({
                     method: 'POST',
-                    url: '/addType',
+                    url: '/addBook',
                     headers: {
                         //表单的报头格式
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -247,7 +256,10 @@ adminApp.controller('addBook', ['$scope', '$http',
                     data: $.param($scope.formData) //发送user数据到后台，这里用到了jQ
                 }).then(function successCallback(response) {
                     if (response.status === 200) {
-                        $scope.typeName = "";
+                        //添加成功，清空输入项
+                        for (var p in $scope.formData) {
+                            $scope[p] = '';
+                        }
                         alert(response.data.success);
                     }
                 }, function errorCallback(response) {
