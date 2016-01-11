@@ -33,6 +33,8 @@ var insert = function(user, callback) {
             console.log("UserDaoInsertSuccess:" + rows);
             if (err) {
                 console.error("UserDaoInsertError:" + err);
+                callback("error",err);
+                return;
             }
             callback("success");
         });
@@ -84,7 +86,7 @@ var modify = function(user, callback) {
             if (err) {
                 console.error("UserDaoModifyError:" + err);
             }
-            callback("success");
+            callback("success",err);
         });
     } catch (er) {
         //错误则输出异常并输出错误

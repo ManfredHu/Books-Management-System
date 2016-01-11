@@ -104,4 +104,29 @@ module.exports = function(app) {
         AdminCtrl.addBook(req, res);
     });
 
+    //获取全部类别数据
+    app.get('/seeAllBook', function(req, res) {
+        AdminCtrl.seeAllBook(req, res);
+    });
+
+    //接受类别数据的修改
+    app.put('/seeAllBook/:id', function(req, res) {
+        AdminCtrl.updateBook(req, res);
+    });
+
+    //删除类别
+    app.delete('/seeAllBook/:id', function(req, res) {
+        AdminCtrl.deleteBook(req, res);
+    });
+
+    //添加管理员
+    app.post('/addAdmin', function(req, res) {
+        AdminCtrl.addAdmin(req, res);
+    });
+
+    //添加管理员
+    app.post('/manageAccount', function(req, res) {
+        AdminCtrl.manageAccount(req, res);
+    });
+
 }

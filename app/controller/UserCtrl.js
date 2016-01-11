@@ -1,4 +1,5 @@
-var config = require('./config.js'),
+var 
+    // config = require('./config.js'),
     // model = require('../model/Model.js'),
     UserDao = require('../dao/UserDao.js'),
     md5 = require('md5');
@@ -6,7 +7,7 @@ var config = require('./config.js'),
 //登陆的控制器
 exports.login = function(req, res) {
     //传入response进行设置
-    config.setResponse(res);
+    // config.setResponse(res);
     
     //获取请求数据并查看数据库
     var Admin_name = req.body.inputUsername,

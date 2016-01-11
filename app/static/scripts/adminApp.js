@@ -60,6 +60,18 @@ adminApp.config(function($stateProvider, $urlRouterProvider) { //设置路由
             templateUrl: '/tpl/seeAllBook.html',
             controller: 'seeAllBook'
         })
+        //添加管理员
+        .state('admin.addAdmin',{
+            url: '/addAdmin',
+            templateUrl: '/tpl/addAdmin.html',
+            controller: 'addAdmin'
+        })
+        //添加管理员
+        .state('admin.manageAccount',{
+            url: '/manageAccount',
+            templateUrl: '/tpl/manageAccount.html',
+            controller: 'manageAccount'
+        })
         ;
 
     $urlRouterProvider.otherwise('/admin/addType'); //设置其他路径跳转到index

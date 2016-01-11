@@ -130,7 +130,7 @@ var selectOne = function(id, callback){
 exports.selectOne = selectOne;
 
 var selectAll = function(callback) {
-    var sql = "select * from t_book";
+    var sql = "select * from t_book,t_type where t_book.Sort_id = t_type.Sort_id";
     try {
         //执行插入语句，成功返回success
         query(sql, function(err, rows) {
