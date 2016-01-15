@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
     }))
     .use(bodyParser.json())
     .use(expressSession({
-        secret: 'manfredHu', //加密
+        secret: 'secret', //加密
         resave: false,
         saveUninitialized: true,
         cookie: {
