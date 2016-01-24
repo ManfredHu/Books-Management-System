@@ -8,6 +8,7 @@
 body {
     padding: 0;
     background-color: #eee;
+    background: url(../../images/book-store.jpg) no-repeat center top;
 }
 
 
@@ -44,7 +45,8 @@ body {
     border-top: 1px solid #e5e5e5;
     position: absolute;
     bottom: 0;
-    width:100%;
+    width: 100%;
+    background: #eee;
 }
 
 .container-narrow > hr {
@@ -115,6 +117,7 @@ body {
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 10px;
+    color: #fff;
 }
 
 .form-signin .checkbox {
@@ -146,7 +149,10 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+
 /*登陆页面图标勾向下偏移*/
-.has-feedback label.sr-only ~ .top-4px{
-    top:4px;
+
+.has-feedback label.sr-only ~ .top-4px {
+    top: 4px;
 }

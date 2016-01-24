@@ -11,7 +11,7 @@ exports.login = function(req, res) {
     
     //获取请求数据并查看数据库
     var Admin_name = req.body.inputUsername,
-        Admin_password = md5(req.body.inputPassword); //这里对密码进行两次MD5加密来确认密码
+        Admin_password = md5(req.body.inputPassword); //这里对密码进行MD5加密来确认密码
 
     UserDao.selectAll(function(rows) {
         //缓存变量，提高查找效率

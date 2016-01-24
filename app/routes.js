@@ -7,7 +7,9 @@ module.exports = function(app) {
     //静态文件和一些库文件的路径映射，还有一些模板
     app.use('/static', express.static('./static'))
         .use('/lib', express.static('./lib'))
-        .use('/tpl', express.static('./views'));
+        .use('/tpl', express.static('./views'))
+        .use('/images',express.static('./images'))
+        ;
 
     app.get('/', function(req, res) {
         if (req.session.Admin_id) {
