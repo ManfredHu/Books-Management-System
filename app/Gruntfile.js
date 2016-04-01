@@ -1,4 +1,3 @@
-// Generated on 2015-11-29 using generator-angular 0.14.0
 'use strict';
 
 

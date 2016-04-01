@@ -11,7 +11,7 @@
 1. 载入sql文件夹的sql部分
 2. 项目根目录装载`npm install`
 3. `cd app`进入app目录
-4. `node app.js`启动服务器或者`grunt`直接进入配置好nodemon和watch的开发环境
+4. `node app.js`启动服务器或者`grunt`直接进入配置好`nodemon`和`watch`的开发环境
 5. 浏览器输入`localhost:9000`进入
 
 
@@ -65,7 +65,7 @@ app.use(session({
     }));
 ```
 
-但是这样会报错，stackOverflow上面是下面这样的，居然通过了-_-!!
+但是这样会报错，stackOverflow上面是下面这样的，居然可以了-_-!!
 
 
 ```javascript
