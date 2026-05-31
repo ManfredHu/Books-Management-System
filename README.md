@@ -77,3 +77,15 @@ app.use(expressSession({
         saveUninitialized: true
     }));
 ```
+
+---
+
+## Star History
+
+<a href="https://star-history.com/#ZenAlexa/llm-observatory&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ManfredHu/Books-Management-System&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ManfredHu/Books-Management-System&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ZenAlexa/llm-observatory&type=Date" />
+  </picture>
+</a>
